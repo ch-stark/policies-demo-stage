@@ -26,9 +26,9 @@ spec:
                     prometheusK8s:
                       remoteWrite:
                         - url: "http://my-cluster-kafka-bootstrap.openshift-operators.svc:9092/receive-topic"
-                  remediationAction: enforce
+                  remediationAction: inform
           severity: high
-  remediationAction: enforce
+  remediationAction: inform
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding

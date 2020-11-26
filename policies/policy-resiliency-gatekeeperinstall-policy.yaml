@@ -209,7 +209,7 @@ spec:
                                 recreated after its CRD was deleted out from
                                 under it, interrupting the watch
                               type: string
-                            enforced:
+                            informd:
                               type: boolean
                             errors:
                               items:
@@ -929,7 +929,7 @@ spec:
                           - namespaces
                     sideEffects: None
                     timeoutSeconds: 5
-  remediationAction: enforce
+  remediationAction: inform
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
