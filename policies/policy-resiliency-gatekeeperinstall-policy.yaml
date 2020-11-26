@@ -617,11 +617,14 @@ spec:
                       - update
                   - apiGroups:
                       - admissionregistration.k8s.io
+                      - security.openshift.io
                     resourceNames:
-                      - gatekeeper-validating-webhook-configuration
+                      - anyuid
                     resources:
+                      - securitycontextconstraints
                       - validatingwebhookconfigurations
                     verbs:
+                      - use
                       - create
                       - delete
                       - get
