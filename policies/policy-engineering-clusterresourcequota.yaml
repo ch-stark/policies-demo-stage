@@ -27,7 +27,7 @@ spec:
           object-templates:
             - complianceType: musthave
               objectDefinition:
-                apiVersion: v1
+                apiVersion: quota.openshift.io/v1
                 kind: ClusterResourceQuota
                 metadata:
                   name: for-user
@@ -74,6 +74,7 @@ spec:
           object-templates:
             - complianceType: musthave
               objectDefinition:
+                apiVersion: quota.openshift.io/v1
                 kind: ClusterResourceQuota
                 metadata:
                   creationTimestamp: null
