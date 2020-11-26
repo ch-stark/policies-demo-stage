@@ -127,7 +127,7 @@ spec:
                   replicas: 1
           remediationAction: inform
           severity: low
-  remediationAction: inform
+  remediationAction: enforce
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
