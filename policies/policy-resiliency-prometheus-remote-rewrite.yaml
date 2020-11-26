@@ -2,7 +2,6 @@ apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
   name: prometheus-remote-rewrite
-  namespace: default
   annotations:
     policy.open-cluster-management.io/standards: NIST SP 800-53
     policy.open-cluster-management.io/categories: CM Configuration Management
@@ -21,6 +20,8 @@ spec:
               objectDefinition:
                 apiVersion: v1
                 kind: ConfigMap
+                metadata:
+                  namespace: openshift-monitorin
                 data:
                   config.yaml: |
                     prometheusK8s:
@@ -34,7 +35,6 @@ apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
   name: binding-prometheus-remote-rewrite
-  namespace: default
 placementRef:
   name: placement-prometheus-remote-rewrite
   kind: PlacementRule
@@ -48,7 +48,6 @@ apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
   name: placement-prometheus-remote-rewrite
-  namespace: default
 spec:
   clusterConditions:
   - status: "True"
