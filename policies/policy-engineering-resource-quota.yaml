@@ -31,7 +31,6 @@ spec:
                 kind: ResourceQuota
                 metadata:
                   name: core-object-counts
-                  namespace: ENTERVALUE
                 spec:
                   hard:
                     configmaps: "10" 
@@ -45,21 +44,21 @@ spec:
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
-  name: binding-policy-resourcequota
+  name: binding-resourcequota
   namespace: 
 placementRef:
-  name: placement-policy-enableUserWorkload
+  name: placement-resourcequota
   kind: PlacementRule
   apiGroup: apps.open-cluster-management.io
 subjects:
-- name: policy-policy-resourcequota
+- name: policy-resourcequota
   kind: Policy
   apiGroup: policy.open-cluster-management.io
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-  name: placement-policy-resourcequota
+  name: placement-resourcequota
   namespace: 
 spec:
   clusterConditions:
