@@ -617,14 +617,11 @@ spec:
                       - update
                   - apiGroups:
                       - admissionregistration.k8s.io
-                      - security.openshift.io
                     resourceNames:
-                      - anyuid
+                      - gatekeeper-validating-webhook-configuration
                     resources:
-                      - securitycontextconstraints
                       - validatingwebhookconfigurations
                     verbs:
-                      - use
                       - create
                       - delete
                       - get
@@ -632,14 +629,6 @@ spec:
                       - patch
                       - update
                       - watch
-                    - apiGroups:
-                        - security.openshift.io
-                      resourceNames:
-                        - anyuid
-                      resources:
-                        - securitycontextconstraints
-                      verbs:
-                        - use                      
             - complianceType: musthave
               objectDefinition:
                 apiVersion: rbac.authorization.k8s.io/v1
@@ -719,6 +708,7 @@ spec:
                       gatekeeper.sh/system: 'yes'
                   template:
                     metadata:
+                      annotations:
                       labels:
                         control-plane: audit-controller
                         gatekeeper.sh/operation: audit
