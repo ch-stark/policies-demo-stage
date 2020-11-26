@@ -398,7 +398,7 @@ spec:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
         metadata:
-          name: policy-gatekeeper-audit-liveness
+          name: policy-gatekeeper-audit-liveness-a
         spec:
           remediationAction: enforce # will be overridden by remediationAction in parent policy
           severity: low
@@ -416,7 +416,7 @@ spec:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
         metadata:
-          name: policy-gatekeeper-admission-liveness
+          name: policy-gatekeeper-admission-liveness-b
         spec:
           remediationAction: enforce # will be overridden by remediationAction in parent policy
           severity: low
