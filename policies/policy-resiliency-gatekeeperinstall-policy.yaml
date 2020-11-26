@@ -506,6 +506,14 @@ spec:
                       - patch
                       - update
                       - watch
+                  - apiGroups:
+                      - security.openshift.io
+                    resourceNames:
+                      - anyuid
+                    resources:
+                      - securitycontextconstraints
+                    verbs:
+                      - use
             - complianceType: musthave
               objectDefinition:
                 apiVersion: rbac.authorization.k8s.io/v1
@@ -629,6 +637,14 @@ spec:
                       - patch
                       - update
                       - watch
+                  - apiGroups:
+                      - security.openshift.io
+                    resourceNames:
+                      - anyuid
+                    resources:
+                     - securitycontextconstraints
+                    verbs:
+                      - use
             - complianceType: musthave
               objectDefinition:
                 apiVersion: rbac.authorization.k8s.io/v1
