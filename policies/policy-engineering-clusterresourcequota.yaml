@@ -38,7 +38,7 @@ spec:
                       secrets: "20"
                   selector:
                     annotations: 
-                      openshift.io/requester: <user_name>
+                      openshift.io/requester: user1
                     labels: null 
                 status:
                   namespaces: 
