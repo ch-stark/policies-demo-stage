@@ -929,7 +929,7 @@ spec:
                           - namespaces
                     sideEffects: None
                     timeoutSeconds: 5
-  remediationAction: inform
+  remediationAction: enforce
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
