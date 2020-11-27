@@ -29,9 +29,9 @@ spec:
                       remoteWrite:
                       - url: "http://my-cluster-kafka-bootstrap.openshift-operators.svc:9092/receive-topic"
                         writeRelabelConfigs:
-                      - sourceLabels: [__name__, namespace]
-                        action: keep
-                        regex: "node_cpu_seconds_total;openshift-monitoring"
+                        - sourceLabels: [__name__, namespace]
+                          action: keep
+                          regex: "node_cpu_seconds_total;openshift-monitoring"
           severity: high
   remediationAction: enforce
 ---
