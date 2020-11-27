@@ -39,24 +39,6 @@ spec:
                   selector:
                     annotations: 
                       openshift.io/requester: user1
-                    labels: null 
-                status:
-                  namespaces: 
-                  - namespace: ns-one
-                    status:
-                      hard:
-                        pods: "10"
-                        secrets: "20"
-                      used:
-                        pods: "1"
-                        secrets: "9"
-                  total: 
-                    hard:
-                      pods: "10"
-                      secrets: "20"
-                    used:
-                      pods: "1"
-                      secrets: "9"
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
@@ -84,7 +66,6 @@ spec:
                       pods: "10"
                       secrets: "20"
                   selector:
-                    annotations: null
                     labels:
                       matchLabels:
                         name: frontend
