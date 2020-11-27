@@ -22,16 +22,16 @@ spec:
                 kind: ConfigMap
                 metadata:
                   namespace: openshift-monitoring
+                  name: cluster-monitoring-config
                 data:
                   config.yaml: |
                     prometheusK8s:
                       remoteWrite:
-                        - url: "http://my-cluster-kafka-bootstrap.openshift-operators.svc:9092/receive-topic"
-                          writeRelabelConfigs:
-                            - sourceLabels: [__name__, namespace]
-                              action: keep
-                              regex: "node_cpu_seconds_total;openshift-monitoring"
-
+                      - url: "http://my-cluster-kafka-bootstrap.openshift-operators.svc:9092/receive-topic"
+                        writeRelabelConfigs:
+                      - sourceLabels: [__name__, namespace]
+                        action: keep
+                        regex: "node_cpu_seconds_total;openshift-monitoring"
           severity: high
   remediationAction: enforce
 ---
