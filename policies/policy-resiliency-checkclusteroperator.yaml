@@ -33,6 +33,8 @@ spec:
                   conditions:
                     - status: 'False'
                       type: Available
+                    - status: 'True'
+                      type: Degraded
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
