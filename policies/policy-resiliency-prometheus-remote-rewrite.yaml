@@ -27,7 +27,11 @@ spec:
                     prometheusK8s:
                       remoteWrite:
                         - url: "http://my-cluster-kafka-bootstrap.openshift-operators.svc:9092/receive-topic"
-                  remediationAction: enforce
+                          writeRelabelConfigs:
+                            - sourceLabels: [__name__, namespace]
+                              action: keep
+                              regex: "node_cpu_seconds_total;openshift-monitoring"
+
           severity: high
   remediationAction: enforce
 ---
@@ -55,4 +59,3 @@ spec:
   clusterSelector:
     matchExpressions:
       - {key: name, operator: In, values: ["local-cluster"]}
-
