@@ -30,7 +30,6 @@ spec:
                 metadata:
                   annotations:
                     controller-gen.kubebuilder.io/version: v0.3.0
-                  creationTimestamp: null
                   labels:
                     gatekeeper.sh/system: 'yes'
                   name: configs.config.gatekeeper.sh
@@ -943,7 +942,7 @@ spec:
                           - namespaces
                     sideEffects: None
                     timeoutSeconds: 5
-  remediationAction: enforce
+  remediationAction: inform
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
