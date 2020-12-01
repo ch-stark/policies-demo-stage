@@ -44,7 +44,7 @@ spec:
                         app: my-application-web
                     spec:
                       containers:
-                        - image: 'quay.io/<username>/my-application-nginx:latest'
+                        - image: 'quay.io/redhattraining/hello-world-nginx:latest'
                           name: my-application-nginx
                           imagePullPolicy: Always
                           ports:
