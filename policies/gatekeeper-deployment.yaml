@@ -25,9 +25,7 @@ spec:
           object-templates:
             - complianceType: musthave
               objectDefinition:
-                apiVersion: v1
-                items:
-                - apiVersion: apps/v1
+                  apiVersion: apps/v1
                   kind: Deployment
                   metadata:
                     annotations:
