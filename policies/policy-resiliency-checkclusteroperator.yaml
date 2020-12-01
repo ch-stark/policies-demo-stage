@@ -56,9 +56,9 @@ metadata:
   name: placement-policy-checkclusteroperator
   namespace: default
 spec:
-  clusterConditions:
-  - status: "True"
-    type: ManagedClusterConditionAvailable
   clusterSelector:
-    matchExpressions:
-      - {key: local-cluster, operator: In, values: ["true"]}
+    matchLabels:
+      name: local-cluster
+      monitoring: true
+
+
