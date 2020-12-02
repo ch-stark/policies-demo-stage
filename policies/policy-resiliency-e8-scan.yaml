@@ -9,7 +9,7 @@ metadata:
     policy.open-cluster-management.io/controls: PR.IP-1 Baseline Configuration
 spec:
   disabled: false
-  remediationAction: enforce
+  remediationAction: inform
   policy-templates:
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
@@ -210,7 +210,7 @@ spec:
                                 recreated after its CRD was deleted out from
                                 under it, interrupting the watch
                               type: string
-                            enforced:
+                            informd:
                               type: boolean
                             errors:
                               items:
@@ -933,7 +933,7 @@ spec:
                           - namespaces
                     sideEffects: None
                     timeoutSeconds: 5
-  remediationAction: enforce
+  remediationAction: inform
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding

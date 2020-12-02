@@ -9,7 +9,7 @@ metadata:
     policy.open-cluster-management.io/controls: PR.IP-1 Baseline Configuration
 spec:
   disabled: false
-  remediationAction: enforce
+  remediationAction: inform
   policy-templates:
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
@@ -51,7 +51,7 @@ spec:
                   entityOperator:
                     topicOperator: {}
                     userOperator: {}
-          remediationAction: enforce
+          remediationAction: inform
           severity: low
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
@@ -125,9 +125,9 @@ spec:
                     segment.bytes: 1073741824
                   partitions: 3
                   replicas: 1
-          remediationAction: enforce
+          remediationAction: inform
           severity: low
-  remediationAction: enforce
+  remediationAction: inform
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
