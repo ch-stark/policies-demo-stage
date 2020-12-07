@@ -39,7 +39,6 @@ apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
   name: binding-policy-checkclusteroperator
-  namespace: default
 placementRef:
   name: placement-policy-checkclusteroperator
   kind: PlacementRule
@@ -53,7 +52,6 @@ apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
   name: placement-policy-checkclusteroperator
-  namespace: default
 spec:
   clusterConditions:
   - status: "True"
