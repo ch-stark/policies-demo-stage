@@ -51,7 +51,14 @@ spec:
                        cpuRequestToLimitPercent: 25
                        limitCPUToMemoryPercent: 200
                        memoryRequestToLimitPercent: 50
-                    
+            - complianceType: musthave
+              objectDefinition:
+                kind: Namespace
+                apiVersion: v1
+                metadata:
+                   name: cluster-resource-overwrite-example
+                   labels:
+                     clusterresourceoverrides.admission.autoscaling.openshift.io/enabled: "true"
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
