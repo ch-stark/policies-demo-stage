@@ -2,11 +2,11 @@ apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
   name: policy-checkclusteroperator
+  namespace: default
   annotations:
     policy.open-cluster-management.io/standards: NIST-CSF
     policy.open-cluster-management.io/categories: PR.IP Information Protection Processes and Procedures
     policy.open-cluster-management.io/controls: PR.IP-1 Baseline Configuration
-    donotenforce: ok
 spec:
   remediationAction: inform
   disabled: false
@@ -39,9 +39,10 @@ spec:
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
-  name: binding-checkclusteroperator
+  name: binding-policy-checkclusteroperator
+  namespace: default
 placementRef:
-  name: placement-checkclusteroperator
+  name: placement-policy-checkclusteroperator
   kind: PlacementRule
   apiGroup: apps.open-cluster-management.io
 subjects:
@@ -52,11 +53,13 @@ subjects:
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-  name: placement-checkclusteroperator
+  name: placement-policy-checkclusteroperator
+  namespace: default
 spec:
+  clusterConditions:
+  - status: "True"
+    type: ManagedClusterConditionAvailable
   clusterSelector:
-    matchLabels:
-      name: local-cluster
-      monitoring: true
-
-
+    matchExpressions:
+      - {key: name, operator: In, values: ["local-cluster"]}
+      - {key: monitoring, operator: In, values: ["true"]}
