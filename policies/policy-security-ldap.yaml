@@ -52,6 +52,33 @@ spec:
                       mappingMethod: claim
                       name: ldap
                       type: LDAP
+            - complianceType: mustonlyhave
+              objectDefinition:
+                apiVersion: config.openshift.io/v1
+                kind: OAuth
+                metadata:
+                  name: cluster
+                spec:
+                  identityProviders:
+                    - ldap:
+                        attributes:
+                          email:
+                            - mail
+                          id:
+                            - dn
+                          name:
+                            - cn
+                          preferredUsername:
+                            - uid
+                        bindDN: 'cn=admin,dc=planetexpress,dc=com'
+                        bindPassword:
+                          name: ldap-bind-password
+                        insecure: true
+                        url: >-
+                          ldap://ldap.cluster.lab.com/DC=planetexpress,DC=com?uid?sub?(memberOf=cn=admin_staff,ou=people,dc=planetexpress,dc=com)
+                      mappingMethod: claim
+                      name: ldap
+                      type: LDAP                      
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
